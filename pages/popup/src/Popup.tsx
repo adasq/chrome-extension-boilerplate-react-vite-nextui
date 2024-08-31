@@ -1,7 +1,8 @@
 import '@src/Popup.css';
-import { useStorageSuspense, withErrorBoundary, withSuspense } from '@extension/shared';
+import { useStorageSuspense, withErrorBoundary, withSuspense, withNextui } from '@extension/shared';
 import { exampleThemeStorage } from '@extension/storage';
 import type { ComponentPropsWithoutRef } from 'react';
+import { Button } from '@nextui-org/button';
 
 const Popup = () => {
   const theme = useStorageSuspense(exampleThemeStorage);
@@ -28,8 +29,9 @@ const Popup = () => {
       <header className={`App-header ${isLight ? 'text-gray-900' : 'text-gray-100'}`}>
         <img src={chrome.runtime.getURL(logo)} className="App-logo" alt="logo" />
         <p>
-          Edit <code>pages/popup/src/Popup.tsx</code>
+          Edit <code>pages/popup/src/Popup.tsx</code>!
         </p>
+        <Button color="primary">Nextui button...</Button>
         <button
           className={
             'font-bold mt-4 py-1 px-4 rounded shadow hover:scale-105 ' +
@@ -60,4 +62,4 @@ const ToggleButton = (props: ComponentPropsWithoutRef<'button'>) => {
   );
 };
 
-export default withErrorBoundary(withSuspense(Popup, <div> Loading ... </div>), <div> Error Occur </div>);
+export default withNextui(withErrorBoundary(withSuspense(Popup, <div> Loading ... </div>), <div> Error Occur </div>));
