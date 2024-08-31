@@ -3,5 +3,9 @@
   "version": "0.3.1",
   "description": "Tailwind CSS configuration for boilerplate",
   "main": "./tailwind.config.js",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@nextui-org/react": "^2.4.6",
+    "framer-motion": "^11.3.31"
+  }
 }
